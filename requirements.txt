@@ -1,0 +1,4 @@
+cryptography==46.0.6
+zfec==1.6.0.0
+numpy==2.4.4
+matplotlib==3.10.8

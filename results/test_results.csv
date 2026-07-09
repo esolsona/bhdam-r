@@ -1,0 +1,9 @@
+test,passed
+reconstruct with exactly k valid shards,True
+reconstruct with all n shards,True
+fail when fewer than k shards,True
+detect a modified shard (quarantined),True
+detect replayed shard from another transfer,True
+fail when recipient key does not match,True
+reject manifest under wrong sender key,True
+AONT/threshold: k-1 shards insufficient for package,True
