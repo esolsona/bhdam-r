@@ -1,0 +1,138 @@
+{
+  "manifest": {
+    "aead_alg": "AES-256-GCM",
+    "aead_nonce": "d78a0e373100990cae818f3f",
+    "aont": true,
+    "created_utc": 1783603587.9237294,
+    "dataset_version": "1.0",
+    "dek_wrap": {
+      "ciphertext": "8ab23dea0a59300e2aa733dce766a3d7eed8c8531ac7800a9da2cb51f865d6dc3fcfa570465717c91b9f64167466e55e",
+      "ephemeral_pub": "ec918a0e9f72060c11e0225c8ea3e2597fc4ba4bae4899c4ffc0ed3ea1f5df69",
+      "nonce": "e4a0e9f30719ae3ce5560c23"
+    },
+    "files": [
+      {
+        "name": "scan_volume.raw",
+        "sha256": "edf59415ac6d3a854c9ce42f784d02aa4e076b0353f27d0af294031ff36567b4",
+        "size": 20971520
+      }
+    ],
+    "k": 4,
+    "merkle_root": "91ae13b0474ae1c003579fb163d35ed9159c936af3e7a825398f8275439716aa",
+    "n": 6,
+    "orig_package_len": 20971576,
+    "package_sha256": "dafd98d5a70f9e69cc3fa8aebca341a76acca31ba9158353b6ec1a2cff946496",
+    "recipient_id": "Biotech-Lab",
+    "sender_id": "Hospital-Source",
+    "shards": [
+      {
+        "channel": "ch0",
+        "k": 4,
+        "n": 6,
+        "sha256": "0ee4f403c7726b491446796f278e2181c559f7940ca7be20a8c1f0a15ab571aa",
+        "shard_id": "76fa9b33-5804-41c9-b448-84d36c9852ef:0",
+        "sharenum": 0,
+        "size": 5242894,
+        "transfer_id": "76fa9b33-5804-41c9-b448-84d36c9852ef"
+      },
+      {
+        "channel": "ch1",
+        "k": 4,
+        "n": 6,
+        "sha256": "c9500e39442f1f1133d5e7c4ea37bbb2af25822156479690114e2575760ebf9e",
+        "shard_id": "76fa9b33-5804-41c9-b448-84d36c9852ef:1",
+        "sharenum": 1,
+        "size": 5242894,
+        "transfer_id": "76fa9b33-5804-41c9-b448-84d36c9852ef"
+      },
+      {
+        "channel": "ch2",
+        "k": 4,
+        "n": 6,
+        "sha256": "a5aaa4b559cb1c07a80e69031d364b42dc56aed891a3899b2622b7daa28ff1b2",
+        "shard_id": "76fa9b33-5804-41c9-b448-84d36c9852ef:2",
+        "sharenum": 2,
+        "size": 5242894,
+        "transfer_id": "76fa9b33-5804-41c9-b448-84d36c9852ef"
+      },
+      {
+        "channel": "ch3",
+        "k": 4,
+        "n": 6,
+        "sha256": "02b078c864793ef7b7fa812ffd5dd0e48dbf457e5d2250e842359f79b6e34370",
+        "shard_id": "76fa9b33-5804-41c9-b448-84d36c9852ef:3",
+        "sharenum": 3,
+        "size": 5242894,
+        "transfer_id": "76fa9b33-5804-41c9-b448-84d36c9852ef"
+      },
+      {
+        "channel": "ch4",
+        "k": 4,
+        "n": 6,
+        "sha256": "d7a3d089becdbc3f718edc8d99ef0862496bf49f564a9b4acd88b6552772ed92",
+        "shard_id": "76fa9b33-5804-41c9-b448-84d36c9852ef:4",
+        "sharenum": 4,
+        "size": 5242894,
+        "transfer_id": "76fa9b33-5804-41c9-b448-84d36c9852ef"
+      },
+      {
+        "channel": "ch5",
+        "k": 4,
+        "n": 6,
+        "sha256": "8d424826b101fb10642305b22e7a8de898d70628a17db2720f8843b46f6a3673",
+        "shard_id": "76fa9b33-5804-41c9-b448-84d36c9852ef:5",
+        "sharenum": 5,
+        "size": 5242894,
+        "transfer_id": "76fa9b33-5804-41c9-b448-84d36c9852ef"
+      }
+    ],
+    "transfer_id": "76fa9b33-5804-41c9-b448-84d36c9852ef"
+  },
+  "signature_hex": "8cb1ca3d8f5ef08ca4d1782e43987af37532207cded47dbfcbb2aef41e54dc929b93f5fc12d79e2540fdf9a51ffb8720f9860c79f38799ed0e92f2177f15ee04",
+  "evidence": {
+    "transfer_id": "76fa9b33-5804-41c9-b448-84d36c9852ef",
+    "trust_state": "R5",
+    "events": [
+      {
+        "t": 1783603587.925,
+        "event": "manifest_verified",
+        "sender": "Hospital-Source"
+      },
+      {
+        "t": 1783603587.976,
+        "event": "shard_accepted",
+        "sharenum": 0
+      },
+      {
+        "t": 1783603587.976,
+        "event": "shard_accepted",
+        "sharenum": 1
+      },
+      {
+        "t": 1783603587.976,
+        "event": "shard_accepted",
+        "sharenum": 2
+      },
+      {
+        "t": 1783603587.976,
+        "event": "shard_accepted",
+        "sharenum": 5
+      },
+      {
+        "t": 1783603588.055,
+        "event": "package_reconstructed",
+        "used": 4
+      },
+      {
+        "t": 1783603588.34,
+        "event": "decrypted",
+        "aead_ok": true
+      },
+      {
+        "t": 1783603588.396,
+        "event": "evidence_ready",
+        "files": 1
+      }
+    ]
+  }
+}

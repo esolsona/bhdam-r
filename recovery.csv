@@ -1,0 +1,4 @@
+dataset,size_mb,send_ms_mean,send_ms_std,recv_ms_mean,recv_ms_std,send_throughput_MBps,recovered_from
+imaging_21MB,20.97,196.634,2.356,165.909,2.153,106.7,4 of 6 channels (2 lost)
+omics_9MB,8.59,81.046,1.828,68.749,1.629,106.0,4 of 6 channels (2 lost)
+clinical_2MB,1.97,18.071,0.319,15.142,0.172,108.9,4 of 6 channels (2 lost)
