@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "BHDAM-R: Secure Multi-Channel Erasure-Coded Health Data Transfer - Reference Implementation"
+authors:
+  - family-names: "Solsona i Sola"
+    given-names: "Enric"
+version: "1.2.0"
+date-released: "2026-07-09"
+license: MIT
+repository-code: "https://github.com/esolsona/bhdam-r"
+doi: "10.5281/zenodo.21280516"
+keywords:
+  - health data transfer
+  - erasure coding
+  - Reed-Solomon
+  - AONT-RS
+  - authenticated encryption
+  - data integrity
+  - GxP
+  - resilient replication
