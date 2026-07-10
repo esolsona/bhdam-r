@@ -1,0 +1,9 @@
+results/
+out/
+__pycache__/
+*.pyc
+*.csv
+*.png
+*.pdf
+*.json
+README.md

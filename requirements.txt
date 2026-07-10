@@ -1,4 +1,146 @@
-cryptography==46.0.6
-zfec==1.6.0.0
-numpy==2.4.4
-matplotlib==3.10.8
+# BHDAM-R — Reference Implementation
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21281180-blue.svg)](https://doi.org/10.5281/zenodo.21281180)
+
+Reference implementation and reproducible experiment artefact for the paper
+**"BHDAM-R: A Secure Multi-Channel Erasure-Coded Model for Transferring Health
+Data Across Untrusted Intermediary Environments"**.
+
+BHDAM-R transfers a regulated dataset from one controlled environment to
+another across partially trusted routes by combining authenticated encryption,
+k-of-n Reed-Solomon dispersal over independent channels, sender-signed
+manifests, controlled reconstruction at the destination, and automatic
+generation of a regulatory evidence package (trust states R0–R5). An optional
+all-or-nothing transform (AONT-RS) turns the reconstruction threshold *k* into
+a confidentiality boundary as well as an availability one.
+
+> This is a research prototype accompanying an academic paper. It is not
+> production software; see *Scope and limitations* below.
+
+## Repository layout
+
+| Path | Contents |
+|---|---|
+| `bhdam_r.py` | Reference library: Sender / Recipient, AES-256-GCM, X25519+HKDF DEK wrap, Ed25519 manifests, Reed-Solomon (zfec), AONT-RS, per-shard multithreaded hashing, R0–R5 evidence. |
+| `datasets.py` | Deterministic synthetic-but-representative datasets (CT-like imaging volume, omics matrix, clinical bundle) and size-scaling payloads. |
+| `experiments.py` | Experiment harness: `test`, `bench`, `overhead`, `recover`, `scaling`, `realistic`, `all`. |
+| `results/` | Reference results reported in the paper (CSV tables, PNG/PDF figures, `environment.json`, example R5 `evidence_package.json`). |
+| `Dockerfile`, `requirements.txt` | Pinned, reproducible container build. |
+| `CITATION.cff`, `LICENSE` | How to cite; MIT license. |
+
+## Quick start (Docker, recommended)
+
+```bash
+docker build -t bhdam-r .
+
+# security test suite (exits 0 iff all 8 checks pass)
+docker run --rm bhdam-r test
+
+# full experiment suite, writing results to ./results on the host
+docker run --rm -v "$(pwd)/results:/app/results" bhdam-r all \
+       --sizes 1 5 25 100 --reps 20 --warmup 3 --trials 800
+```
+
+On Windows PowerShell use `-v "${PWD}\results:/app/results"`.
+
+## Quick start (local Python)
+
+```bash
+pip install -r requirements.txt
+python experiments.py test
+python experiments.py --out out all
+```
+
+Note: `--out` is a global flag and must precede the subcommand.
+
+## Visual demo
+
+`demo_image_transfer.py` transfers a synthetic CT slice with a 4-of-6 profile
+and AONT-RS enabled, loses two channels in transit, reconstructs the image
+byte-for-byte from the four surviving shards, shows that three shards are
+insufficient, and emits the signed R5 evidence package:
+
+```bash
+python demo_image_transfer.py demo_out
+```
+
+![Proof of transfer](docs/demo_figure.png)
+
+## Experiments
+
+- **test** — the eight adversarial checks of the paper (Section 14):
+  reconstruction with exactly k and with all n shards; failure below k;
+  detection of tampered, replayed, duplicate and unknown shards; rejection of a
+  wrong recipient key and of a forged sender signature; and the AONT threshold
+  property (k−1 shards insufficient). Every check runs against a real transfer.
+- **bench** — per-stage timing (packaging, AEAD, AONT, RS encode/decode,
+  per-shard hashing, decrypt) with warm-up and repetitions, mean ± sd, across
+  payload sizes × k-of-n profiles × AONT on/off. Flags: `--sizes`, `--profiles`,
+  `--aont {both,on,off}`, `--workers N`.
+- **overhead** — storage/transfer overhead (n/k) per profile.
+- **recover** — Monte-Carlo transfer-recovery probability under independent
+  per-channel failure, for each profile and a single-channel baseline,
+  validated against the exact binomial model P(X ≥ k); every trial performs a
+  real reconstruction.
+- **scaling** — per-shard hashing latency and speedup versus worker threads
+  (`hashlib` releases the GIL, so threads parallelise across cores without
+  copying shard bytes).
+- **realistic** — end-to-end timing on the representative datasets under a
+  two-lost-channels scenario; also emits the example R5 evidence package.
+
+Reference results in `results/` were produced with
+`all --sizes 1 5 25 100 --reps 20 --warmup 3 --trials 800` on the environment
+recorded in `results/environment.json`. Absolute timings are
+hardware-dependent; re-running regenerates every table and figure.
+
+## Cryptographic composition
+
+| Stage | Mechanism | Reference |
+|---|---|---|
+| Integrity inventory | SHA-256 per file, binary Merkle root | FIPS 180-4 |
+| Confidentiality | AES-256-GCM, fresh random DEK | NIST SP 800-38D |
+| Recipient-only key control | X25519 + HKDF-SHA256 + AES-GCM (ECIES) | RFC 7748 / RFC 5869 |
+| Threshold confidentiality (optional) | AONT package transform over ciphertext | Rivest 1997; Resch & Plank, FAST 2011 (AONT-RS) |
+| Availability / resilience | k-of-n Reed-Solomon (zfec) | Reed & Solomon 1960 |
+| Authenticity / origin | Ed25519 over the canonical manifest | RFC 8032 |
+
+Pipeline: `dataset → manifest → AES-GCM(DEK) → [AONT] → k-of-n erasure code →
+sign → disperse`, reversed at the destination only after signature, hash,
+threshold and AEAD verification.
+
+## Large payloads and memory
+
+The pipeline is in-memory and keeps several full copies of the payload alive
+at once; peak resident memory scales at roughly **6.5 × payload size + ~40 MB**
+(measured 32→256 MB). A 1 GB transfer therefore peaks near 6.7 GB — give the
+Docker VM at least 8 GB and restrict the matrix, e.g.:
+
+```bash
+docker run --rm -v "$(pwd)/results:/app/results" bhdam-r \
+       bench --sizes 1024 --profiles 4-of-6 --aont on --reps 3 --warmup 1
+```
+
+A bounded-memory streaming implementation is future work.
+
+## Scope and limitations
+
+- Channels are simulated in memory; chain-of-custody for physical media is an
+  operational control outside this code.
+- Datasets are synthetic and deterministic; they match the size and structure
+  of real payloads but contain no protected data. No compression is applied,
+  so payload entropy does not affect pipeline cost.
+- PKI is reduced to raw Ed25519/X25519 keys; certificate chains, revocation
+  and timestamping are out of scope for the prototype.
+- The identities used in demos ("Hospital-Source", "Biotech-Lab") are
+  illustrative labels only.
+
+## Citing
+
+See `CITATION.cff` (GitHub renders a "Cite this repository" button).
+Archived on Zenodo: https://doi.org/10.5281/zenodo.21281180
+
+## License
+
+MIT — © 2026 Enric Solsona i Sola. See `LICENSE`.
