@@ -165,7 +165,7 @@ Since v1.4 the AEAD layer seals the package in independent 1 GiB segments (each 
 ## Citing
 
 See `CITATION.cff` (GitHub renders a "Cite this repository" button).
-Archived on Zenodo: https://doi.org/10.5281/zenodo.21297069
+Archived on Zenodo: [https://doi.org/10.5281/zenodo.21297069](https://zenodo.org/records/22900519)
 
 ## License
 
