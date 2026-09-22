@@ -1,0 +1,3 @@
+scenario,p_network,p_physical,complete_prob
+5 network + 1 physical (BHDAM-R),0.15,0.01,0.9708
+5 network only (TLS cannot use physical),0.15,,0.8316

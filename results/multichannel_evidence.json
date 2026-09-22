@@ -1,0 +1,258 @@
+{
+  "manifest": {
+    "aead_alg": "AES-256-GCM",
+    "aead_nonce": "c8cb2c79e8b2e1f54a45e066",
+    "aont": true,
+    "created_utc": 1790089602.022978,
+    "dataset_version": "1.0",
+    "dek_wrap": {
+      "ciphertext": "bda9d10fd752be156f8165723968d1468533953a69fe5a0aa9b665ae8cc9e3b56474d626e641ee59547c2dfa6697e461",
+      "ephemeral_pub": "424017a715e51b417f24c94c25e6cf4b827a7f44fef9f7598ea9c87e1bb63b19",
+      "nonce": "0ef41a03cd9bf86628a58eee"
+    },
+    "files": [
+      {
+        "name": "payload.bin",
+        "sha256": "befc5394f2d9819f6f599eba3f4094e32e5819949dcd5ace5edca183c9495b5c",
+        "size": 22020096
+      }
+    ],
+    "k": 10,
+    "merkle_root": "1e47d6653e6d7843b0bbca99ae97e48b8b35535671cda39a5f22080dec6d1e72",
+    "n": 15,
+    "orig_package_len": 22020164,
+    "package_sha256": "3c14c026a470b1b363d0324c2d32e53e0a56bca941b9e4f5732e7d4119a35c9d",
+    "recipient_id": "Biotech-Lab",
+    "sender_id": "Hospital-Source",
+    "shards": [
+      {
+        "channel": "amazon-s3 #1:0",
+        "k": 10,
+        "n": 15,
+        "sha256": "c4377890c7ee30b1b0977224f33a6028e2475f2d618970aa470caa137051d81d",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:0",
+        "sharenum": 0,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "amazon-s3 #2:1",
+        "k": 10,
+        "n": 15,
+        "sha256": "9c31080c9feeb95a4d122220b2b3913897645e71358956e8f54fb6ad01d84fee",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:1",
+        "sharenum": 1,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "amazon-s3 #3:2",
+        "k": 10,
+        "n": 15,
+        "sha256": "2d2853851085b65d28167a597ef1357921e44f65a41464aa19d2bf0b021d951d",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:2",
+        "sharenum": 2,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "amazon-s3 #4:3",
+        "k": 10,
+        "n": 15,
+        "sha256": "79b5ff68a038dafbfd443504ee24ca9f87f8f6ed69c8c830b96485dba84bb4bd",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:3",
+        "sharenum": 3,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "amazon-s3 #5:4",
+        "k": 10,
+        "n": 15,
+        "sha256": "bf5b4cdf59ffd282e79885efcd8bd80eb761bae90a47dc1c14440684e46f60fe",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:4",
+        "sharenum": 4,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "azure-blob #1:5",
+        "k": 10,
+        "n": 15,
+        "sha256": "332fd0306e5f523827bf30fd678245a861c01f3d8f9ac0dbf1d4d4994b5db54e",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:5",
+        "sharenum": 5,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "azure-blob #2:6",
+        "k": 10,
+        "n": 15,
+        "sha256": "a238fc286c273dea7ea2b8b82261ac7d3f3a0af5e587dcee5fc791118c6fe0dd",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:6",
+        "sharenum": 6,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "azure-blob #3:7",
+        "k": 10,
+        "n": 15,
+        "sha256": "b6f81034c96286d7c736c60e2084670492fd9f91e18e3e10ade32277e7e68f17",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:7",
+        "sharenum": 7,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "azure-blob #4:8",
+        "k": 10,
+        "n": 15,
+        "sha256": "2c35fec15cd26b970d7fa56e2fde6eed7d12b1bc7a889766f1c3a18abbf10dfd",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:8",
+        "sharenum": 8,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "azure-blob #5:9",
+        "k": 10,
+        "n": 15,
+        "sha256": "ea2c4406142564af5ad7bd43cb8114c58521b81327b69843e28e723106b073ae",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:9",
+        "sharenum": 9,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "sftp-ssh #1:10",
+        "k": 10,
+        "n": 15,
+        "sha256": "742f97735b42dd99f67651b43176b2330fbf070523ebec55ef094c03bf89c922",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:10",
+        "sharenum": 10,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "sftp-ssh #2:11",
+        "k": 10,
+        "n": 15,
+        "sha256": "4263694236bde553f1491f0a2d0ed953e4fc42324269bd96ea2b68806f58c413",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:11",
+        "sharenum": 11,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "sftp-ssh #3:12",
+        "k": 10,
+        "n": 15,
+        "sha256": "cefbb5b8d64a66ab80ef1c8c038dd9329eda8cbafc76f8453d0947c978503227",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:12",
+        "sharenum": 12,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "ftps #1:13",
+        "k": 10,
+        "n": 15,
+        "sha256": "5c5a0559709611665b6db4b291b25afa21ff449546bde88bd194facc766056fe",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:13",
+        "sharenum": 13,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      },
+      {
+        "channel": "local-disk (physical):14",
+        "k": 10,
+        "n": 15,
+        "sha256": "2d83c3731e245cb61973101c6339173edc29174688cf3267dce25efd162ae48f",
+        "shard_id": "3e234c0e-1812-4690-8458-32cfe47ca87a:14",
+        "sharenum": 14,
+        "size": 2202017,
+        "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+      }
+    ],
+    "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a"
+  },
+  "signature_hex": "f2b17e342dbfcd217f3ce865d3f6c60ea97dc18ae4eec7291f46b39a902aa27df07d5c13142ed1aaabf0de9c3a6c2bea0362358152e0f35d015e3728db246b07",
+  "evidence": {
+    "transfer_id": "3e234c0e-1812-4690-8458-32cfe47ca87a",
+    "trust_state": "R5",
+    "events": [
+      {
+        "t": 1790089627.49,
+        "event": "manifest_verified",
+        "sender": "Hospital-Source"
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 0
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 1
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 3
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 4
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 5
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 6
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 8
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 10
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 11
+      },
+      {
+        "t": 1790089627.546,
+        "event": "shard_accepted",
+        "sharenum": 13
+      },
+      {
+        "t": 1790089627.677,
+        "event": "package_reconstructed",
+        "used": 10
+      },
+      {
+        "t": 1790089627.782,
+        "event": "decrypted",
+        "aead_ok": true
+      },
+      {
+        "t": 1790089627.842,
+        "event": "evidence_ready",
+        "files": 1
+      }
+    ]
+  }
+}

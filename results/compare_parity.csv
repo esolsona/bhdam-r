@@ -1,0 +1,8 @@
+capability,plain_TLS,BHDAM_R,notes
+Confidentiality in transit,Yes,Yes,Both AES-256-GCM; TLS 1.3 record layer vs BHDAM-R DEK.
+Integrity in transit,Yes,Yes,TLS MAC per record; BHDAM-R AEAD tag + signed manifest.
+Survives loss of a channel,No,Yes,TLS drops the connection and retransmits in full; BHDAM-R reconstructs from any k of n.
+Split custody across intermediaries,No,Yes,A TLS proxy/endpoint sees the whole stream; no single BHDAM-R channel holds enough shards.
+Persistent tamper-evidence after delivery,No,Yes,TLS protection ends with the session; BHDAM-R retains a signed manifest + evidence (R0-R5).
+Asynchronous / physical channels,No,Yes,TLS needs a live connection; BHDAM-R can use a courier or portable disk as one channel.
+Recipient-bound reconstruction,Partial,Yes,TLS authenticates the endpoint for the session; BHDAM-R binds the DEK to the recipient key.

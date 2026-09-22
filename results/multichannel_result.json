@@ -1,0 +1,71 @@
+{
+  "profile": "10-of-15",
+  "aont": true,
+  "payload_bytes": 22020096,
+  "sha256_original": "befc5394f2d9819f6f599eba3f4094e32e5819949dcd5ace5edca183c9495b5c",
+  "sha256_recovered": "befc5394f2d9819f6f599eba3f4094e32e5819949dcd5ace5edca183c9495b5c",
+  "byte_identical": true,
+  "trust_state": "R5",
+  "n_endpoints": 15,
+  "lost_shards": [
+    2,
+    7,
+    9,
+    12,
+    14
+  ],
+  "channel_types": {
+    "0": "amazon-s3 #1",
+    "1": "amazon-s3 #2",
+    "2": "amazon-s3 #3",
+    "3": "amazon-s3 #4",
+    "4": "amazon-s3 #5",
+    "5": "azure-blob #1",
+    "6": "azure-blob #2",
+    "7": "azure-blob #3",
+    "8": "azure-blob #4",
+    "9": "azure-blob #5",
+    "10": "sftp-ssh #1",
+    "11": "sftp-ssh #2",
+    "12": "sftp-ssh #3",
+    "13": "ftps #1",
+    "14": "local-disk (physical)"
+  },
+  "distinct_transport_technologies": [
+    "amazon-s3",
+    "azure-blob",
+    "ftps",
+    "local-disk",
+    "sftp-ssh"
+  ],
+  "upload_ms": {
+    "0": 139.3,
+    "1": 129.5,
+    "2": 95.9,
+    "3": 121.1,
+    "4": 116.1,
+    "5": 391.8,
+    "6": 483.8,
+    "7": 513.0,
+    "8": 532.6,
+    "9": 411.2,
+    "10": 609.2,
+    "11": 392.0,
+    "12": 319.0,
+    "13": 655.5,
+    "14": 1.4
+  },
+  "download_ms": {
+    "0": 48.8,
+    "1": 44.9,
+    "3": 41.7,
+    "4": 37.3,
+    "5": 681.2,
+    "6": 1186.1,
+    "8": 878.7,
+    "10": 8452.2,
+    "11": 8641.5,
+    "13": 483.6
+  },
+  "note": "Deployment validation over real heterogeneous transports; timings include network latency and are context only, not throughput."
+}
