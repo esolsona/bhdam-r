@@ -9,7 +9,7 @@ version: "1.5.0"
 date-released: "2026-09-22"
 license: MIT
 repository-code: "https://github.com/esolsona/bhdam-r"
-doi: "10.5281/zenodo.21297069"
+doi: "10.5281/zenodo.21280515"
 keywords:
   - health data transfer
   - erasure coding
