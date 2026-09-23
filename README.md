@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
-[[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21297069-blue.svg)]((https://zenodo.org/records/22900519))](https://zenodo.org/records/22900519)
+[[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21297069-blue.svg)]((https://zenodo.org/records/22900519))]
 
 Reference implementation and reproducible experiment artefact for the paper
 **"BHDAM-R: A Secure Multi-Channel Erasure-Coded Model for Transferring Health
